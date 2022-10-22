@@ -1,4 +1,4 @@
-import { useWeapons } from "./customHooks";
+import { useWeapons } from "../../hooks/customHooks"
 
 function bungie(path) {
   return `https://www.bungie.net${path}`

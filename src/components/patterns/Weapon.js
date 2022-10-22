@@ -1,4 +1,4 @@
-import { useDefinitions, useOwnedItemInstances, useProfile } from "./customHooks"
+import { useDefinitions, useOwnedItemInstances } from "../../hooks/customHooks"
 
 function bungie(path) {
   return `https://www.bungie.net${path}`

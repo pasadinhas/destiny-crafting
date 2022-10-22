@@ -1,7 +1,8 @@
-import { useQuery } from '@tanstack/react-query'
-import { fetchManifest, fetchDefinitions, fetchLinkedProfiles, fetchProfile, fetchVendors } from './fetchers'
-import { getMembershipId, getToken } from './auth'
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
+import { fetchManifest, fetchDefinitions, fetchLinkedProfiles, fetchProfile, fetchVendors, fetchActivities } from '../utils/fetchers'
+import { getMembershipId, getToken } from '../utils/auth'
 import { useMemo } from 'react'
+import { lastWeeklyReset } from '../utils/weeklyReset'
 
 function useManifest() {
   return useQuery(['manifest'], fetchManifest, {
@@ -51,12 +52,66 @@ function useVendors() {
   const characters = (profile?.Response?.characters?.data || {})
   const characterId = Object.values(characters)[0]?.characterId
 
-  console.log({ membershipId, membershipType, characters, characterId })
-
   return useQuery(['vendors', membershipType, membershipId, characterId, 400, 402, 1200], fetchVendors, {
     enabled: !!characterId && !!membershipType && !!membershipId && !!getToken(),
     staleTime: Infinity
   })
+}
+
+let currentCharacterActivitiesPage = [0, 0, 0]
+let characterActivitiesComplete = [false, false, false]
+function useAllCharacterActivitiesSinceLastReset() {
+  const currentWeekBeginDate = lastWeeklyReset()
+  const { data: linkedProfiles } = useLinkedProfiles()
+  const membershipType = linkedProfiles?.Response?.profiles[0]?.membershipType
+  const membershipId = linkedProfiles?.Response?.profiles[0]?.membershipId
+
+  const { data: profile } = useProfile(200)
+  const characters = Object.values(profile?.Response?.characters?.data || {})
+  const characterIds = [0, 1, 2].map(i => characters[i]?.characterId ?? 0)
+  let activities = []
+
+  for (let i = 0; i < characterIds.length; i++) {
+    const characterId = characterIds[i]
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, } = useInfiniteQuery(
+      ['activities', membershipType, membershipId, characterId], 
+      fetchActivities, {
+        enabled: !!characterId && !!membershipType && !!membershipId && !!getToken(),
+        staleTime: Infinity,
+        cacheTime: 1000 * 60 * 5, // 5 minutes
+        getNextPageParam: (lastPage, pages) => {
+          if (characterActivitiesComplete[i]) {
+            return null
+          }
+          if (lastPage.Response.activities.length < 250) {
+            // the page wasn't complete, so we don't have more data
+            characterActivitiesComplete[i] = true
+            return null
+          }
+
+          if (lastPage.Response.activities.reduce((result, activity) => {
+            return result || new Date(activity.period) < currentWeekBeginDate
+          }, false)) {
+            characterActivitiesComplete[i] = true
+            return null
+          }
+          return currentCharacterActivitiesPage[i] + 1
+        }
+      }
+    )
+
+    if (hasNextPage && !isFetching && !isFetchingNextPage) {
+      fetchNextPage().then(result => currentCharacterActivitiesPage[i]++)
+    }
+
+    const characterActivities = (data?.pages || []).flatMap(page => page.Response.activities)
+    const characterActivitiesThisReset = characterActivities.filter(activity => new Date(activity.period) > currentWeekBeginDate)
+    
+    activities = [...activities, ...characterActivitiesThisReset]
+  }
+
+  return activities
 }
 
 function useOwnedVendorItems() {
@@ -149,5 +204,6 @@ export {
   useWeapons,
   useVendors,
   useOwnedVendorItems,
-  useOwnedItemInstances
+  useOwnedItemInstances,
+  useAllCharacterActivitiesSinceLastReset
 }

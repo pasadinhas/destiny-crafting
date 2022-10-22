@@ -1,5 +1,6 @@
-import MultiItem from "./MultiItem"
-import VendorUnlock from "./VendorUnlock"
+import MultiItem from "./components/ui/MultiItem"
+import VendorUnlock from "./components/activities/VendorUnlock"
+import ActivityCompletion from "./components/activities/ActivityCompletion"
 
 const Uncategorized = {
   name: "Uncategorized",
@@ -19,9 +20,9 @@ const SeasonOfPlunder = {
     3257403871, // Planck's Stride
   ],
   activities: [
-    <MultiItem span={4}>
+    <MultiItem span={3}>
       <VendorUnlock inventoryItemHash={3809407685} />
-      <VendorUnlock inventoryItemHash={3809407685} />
+      <ActivityCompletion hashes={[287709797, 3594496514]} />
     </MultiItem>,
     <MultiItem span={2}>
       <VendorUnlock inventoryItemHash={3797270607} />

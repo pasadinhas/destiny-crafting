@@ -1,12 +1,12 @@
 import './App.css';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Categories, Uncategorized } from './Categories'
-import Sources from './Sources';
-import Weapons from './Weapons';
-import Constants from './Constants';
+import Sources from './components/sources/Sources';
+import Weapons from './components/patterns/Weapons';
+import Constants from './utils/Constants';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { useWeapons, useProfile } from './customHooks';
-import Characters from './Characters';
+import { useWeapons, useProfile } from './hooks/customHooks';
+import Characters from './components/navbar/Characters';
 
 const categorizedHashes = Categories.flatMap(category => category.hashes)
 
@@ -42,7 +42,7 @@ function authorize() {
             })
             const data = await response.json()
 
-            console.log({data})
+            console.log({accessToken: data})
 
             localStorage.setItem(Constants.ACCESS_TOKEN_KEY, JSON.stringify(data))
         }

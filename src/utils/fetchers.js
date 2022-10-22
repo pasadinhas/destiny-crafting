@@ -9,6 +9,7 @@ function bungie(path) {
 
 async function bungieApi(path, accessToken = null, method = 'GET') {
   accessToken = accessToken ?? getToken()
+  console.log(`Fetching: ${path}`)
   const response = await fetch(bungie(path), {
     method: method,
     headers: {
@@ -45,4 +46,8 @@ async function fetchVendors({queryKey: [_, membershipType, membershipId, charact
   return await bungieApi(`/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Character/${characterId}/Vendors/?components=${components.join(',')}`)
 }
 
-export { fetchLinkedProfiles, fetchManifest, fetchProfile, fetchDefinitions, fetchVendors }
+async function fetchActivities({queryKey: [_, membershipType, membershipId, characterId], pageParam = 0 }) {
+  return await bungieApi(`/Platform/Destiny2/${membershipType}/Account/${membershipId}/Character/${characterId}/Stats/Activities/?count=250&page=${pageParam}`)
+}
+
+export { fetchLinkedProfiles, fetchManifest, fetchProfile, fetchDefinitions, fetchVendors, fetchActivities }

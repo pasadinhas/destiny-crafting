@@ -1,8 +1,7 @@
-import { useDefinitions, useOwnedVendorItems } from "./customHooks"
+import { useDefinitions, useOwnedVendorItems } from "../../hooks/customHooks"
 
 function VendorUnlock({ inventoryItemHash }) {
     const { data } = useDefinitions()
-    console.log({data})
     const result = useOwnedVendorItems()
     const unlocked = result.indexOf(inventoryItemHash)
     const completedClass = unlocked ? 'completed' : ''

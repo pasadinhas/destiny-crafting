@@ -1,4 +1,4 @@
-import { useProfile } from "./customHooks";
+import { useProfile } from "../../hooks/customHooks"
 
 function classTypeDisplayName(classType) {
   switch (classType) {

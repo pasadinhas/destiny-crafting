@@ -1,4 +1,4 @@
-import { useWeapons } from "./customHooks";
+import { useWeapons } from "../../hooks/customHooks"
 import Weapon from "./Weapon";
 
 function Weapons({source, definitions}) {
