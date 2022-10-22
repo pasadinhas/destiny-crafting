@@ -18,13 +18,15 @@ function Source({active, setActive, source}) {
   const available = source.hashes.length
   const complete = completed == available
 
-  const classes = [active ? 'active' : '', complete ? 'completed' : ''].join(' ')
+  const classes = ['source', active ? 'active' : '', complete ? 'completed' : ''].join(' ')
 
   return (<li className={classes} onClick={setActive}>
     <div className='icon image' style={{
       backgroundImage: `url(${source.icon})`
     }}></div>
-    <div className='name'>{source.name}</div>
+    <div className="content">
+      <div className='name'>{source.name}</div>
+    </div>
     <div className='progress'>
       <span>{completed}</span>/<span>{available}</span>
     </div>
