@@ -1,38 +1,469 @@
+* {
+  box-sizing: border-box;
+}
+
+*, *::after, ::before {
+  --border-radius: 1rem;
+  border-radius: var(--border-radius);
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: initial;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  --background-color: rgb(24, 24, 37);
+  --background-color-darker: rgb(18, 18, 24);
+  --background-color-ligher: rgb(35, 35, 57);
+  --font-color: rgba(245, 245, 245);
+  --border-color: rgb(245, 245, 245, 0.2);
+  --pill-height: 44px;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  border-radius: 0;
+}
+
+/** Buttons **/
+
+.button {
+  background-color: var(--background-color-ligher);
+  color: var(--font-color);
+  border: 1px solid var(--border-color);
+  padding: 1rem 3rem;
+}
+
+/** NavBar */
+
+.header {
+  height: 44px;
+  background-color: var(--background-color-darker);
+  border-bottom: 1px solid var(--background-color-ligher);
+  border-radius: 0;
+}
+
+.header .content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  padding: 0 5rem;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.header .content .brand {
+  font-weight: 900;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header .content .status {
+  font-size: 70%;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header .content .button {
+  padding: 0 2rem;
+  height: 80%;
+}
+
+/** Characters */
+
+.characters {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  height: 100%;
+  padding: 7px;
+}
+
+.characters *, .characters *::before, .characters *::after {
+  border-radius: 7px;
+}
+
+.characters .character {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 79 / 16;
+}
+
+.characters .character .image {
+  display: grid;
+  grid-template-columns: 22% 1fr 1fr;
+  grid-template-rows: 15% 70% 15%;
+}
+
+.characters .character .class {
+  font-size: 90%;
+  font-weight: 600;
+  text-transform: capitalize;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.characters .character .power {
+  font-size: 90%;
+  font-weight: 600;
+  text-align: right;
+  text-transform: capitalize;
+  grid-column: 3;
+  grid-row: 2;
+  padding-right: 7px;
+}
+
+
+
+/** App Content */
+
+.app-content {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1.5rem;
+}
+
+
+.column-title {
+  font-size: 140%;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-radius: 0;
+  border-bottom: 1px solid var(--background-color-ligher);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+/* Sources */
+
+ul.sources {
+  display: grid;
+  gap: 0.5rem;
+  height: fit-content;
+}
+
+ul.sources > li {
+  font-size: 90%;
+  display: grid;
+  grid-template-columns: calc(var(--border-radius) + var(--pill-height)) 1fr 48px;
+  pointer-events: none;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  height: var(--pill-height);
+}
+
+ul.sources > li.active {
+  background-color: #d6d6d622;
+}
+
+ul.sources > li > a {
+  left: 0;
+  pointer-events: all;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+}
+
+ul.sources > li.active > a::before {
+  background-color: #d6d6d6aa;
+  content: " ";
+  right: -5px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 2px;
+}
+
+ul.sources > li::before {
+  box-shadow: inset 0 0 0 1px #d6d6d666;
+  content: " ";
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+
+ul.sources > li.active::before {
+  box-shadow: inset 0 0 0 2px #d6d6d6aa;
+}
+
+ul.sources > li > .icon {
+  background-size: 28px;
+  height: var(--pill-height);
+  position: relative;
+  width: var(--pill-height);
+}
+
+ul.sources li .progress {
+  margin-right: 1rem;
+  font-size: 90%;
+  display: grid;
+  gap: 4px;
+  grid-auto-flow: column;
+}
+
+ul.sources li .progress-bar-background {
+  background-color: #337d4e89;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  z-index: -1;
+}
+
+ul.sources li.completed .progress-bar-background {
+  background-color: #e3d4884a;
+}
+
+
+/* Categories */
+
+ul.categories {
+  columns: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+ul.categories li > .name {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 150%;
+  width: 100%;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+/* Image */
+
+.image {
+  background-size: contain;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  background-position: 50%;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+/* New Records List */
+
+ul.craftable-weapons {
+  columns: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  height: fit-content;
+}
+
+ul.craftable-weapons li {
+  font-size: 90%;
+  display: grid;
+  grid-template-columns: calc(var(--border-radius) + var(--pill-height)) 1fr 48px;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  height: var(--pill-height);
+}
+
+ul.craftable-weapons li::before {
+  box-shadow: inset 0 0 0 1px #d6d6d666;
+  content: " ";
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+
+ul.craftable-weapons>li.completed {
+  box-shadow: inset 0 0 0 1px #e3d48866;
+}
+
+ul.craftable-weapons li .icon {
+  --icon-size: calc(var(--pill-height) * 0.85);
+  background-size: var(--icon-size);
+  height: var(--icon-size);
+  position: relative;
+  width: var(--icon-size);
+  border-radius: 2px;
+  margin-left: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+ul.craftable-weapons li .text {
+  margin-left: 1rem;
+}
+
+/* specific */
+ul.craftable-weapons li .text .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* specific */
+ul.craftable-weapons li .text .type {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  grid-column: span 2;
+  filter: brightness(0.5);
+}
+
+ul.craftable-weapons li .progress {
+  margin-right: 1rem;
+  font-size: 90%;
+  display: grid;
+  gap: 4px;
+  grid-auto-flow: column;
+}
+
+ul.craftable-weapons li .progress-bar-background {
+  background-color: #337d4e89;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+ul.craftable-weapons li.completed .progress-bar-background {
+  background-color: #e3d4884a;
+}
+
+
+/** Generic List */
+
+ul.list {
+  display: grid;
+  gap: 0.5rem;
+  height: fit-content;
+  columns: 1;
+  grid-template-columns: 1fr;
+}
+
+ul.list > li {
+  display: grid;
+  grid-template-columns: calc(var(--border-radius) + var(--pill-height)) 1fr 48px;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  height: var(--pill-height);
+  font-size: 90%;
+}
+
+ul.list > li.active {
+  background-color: #d6d6d622;
+}
+
+ul.list > li > a {
+  left: 0;
+  pointer-events: all;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+}
+
+ul.list > li.active > a::before {
+  background-color: #d6d6d6aa;
+  content: " ";
+  right: -5px;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 2px;
+}
+
+ul.list > li::before {
+  box-shadow: inset 0 0 0 1px #d6d6d666;
+  content: " ";
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+
+ul.list > li.active::before {
+  box-shadow: inset 0 0 0 2px #d6d6d6aa;
+}
+
+ul.list > li.completed {
+  box-shadow: inset 0 0 0 1px #e3d48866;
+}
+
+/* TODO: fixme */
+ul.list > li > .icon {
+  background-size: 28px;
+  height: var(--pill-height);
+  position: relative;
+  width: var(--pill-height);
+
+  --icon-size: calc(var(--pill-height) * 0.85);
+  background-size: var(--icon-size);
+  height: var(--icon-size);
+  position: relative;
+  width: var(--icon-size);
+  border-radius: 2px;
+  margin-left: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+ul.list > li  > .content {
+  margin-left: 1rem;
+}
+
+ul.list > li > .progress {
+  margin-right: 1rem;
+  font-size: 90%;
+  display: grid;
+  gap: 4px;
+  grid-auto-flow: column;
+}
+
+ul.list > li > .progress-bar-background {
+  background-color: #337d4e89;
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+ul.list > li.completed > .progress-bar-background {
+  background-color: #e3d4884a;
 }
