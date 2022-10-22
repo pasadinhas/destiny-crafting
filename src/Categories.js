@@ -1,3 +1,4 @@
+import MultiItem from "./MultiItem"
 import VendorUnlock from "./VendorUnlock"
 
 const Uncategorized = {
@@ -18,7 +19,13 @@ const SeasonOfPlunder = {
     3257403871, // Planck's Stride
   ],
   activities: [
-    <VendorUnlock inventoryItemHash={3809407685} />
+    <MultiItem span={4}>
+      <VendorUnlock inventoryItemHash={3809407685} />
+      <VendorUnlock inventoryItemHash={3809407685} />
+    </MultiItem>,
+    <MultiItem span={2}>
+      <VendorUnlock inventoryItemHash={3797270607} />
+    </MultiItem>,
   ]
 }
 

@@ -75,7 +75,9 @@ function App() {
         <Weapons source={activeSource} />
         <div>
           <h1 className="column-title">Activities</h1>
-          {activeSource.activities}
+          <ul className='list'>
+            {activeSource.activities}
+          </ul>
         </div>
       </div>
     </div>

@@ -38,6 +38,7 @@ ul.list {
   height: fit-content;
   columns: 1;
   grid-template-columns: 1fr;
+  grid-auto-rows: var(--pill-height);
 }
 
 ul.list > li {
@@ -48,10 +49,44 @@ ul.list > li {
   z-index: 3;
   height: var(--pill-height);
   font-size: 90%;
+  height: 100%;
+}
+
+ul.list > li.multi-item {
+  grid-template-columns: 1fr;
+  font-size: 95%;
+}
+
+ul.list > li.multi-item > ul.list {
+  gap: 0;
 }
 
 ul.list > li.active {
   background-color: #d6d6d622;
+}
+
+ul.list > li::before {
+  box-shadow: inset 0 0 0 1px #d6d6d666;
+  content: " ";
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+
+ul.list > li.active::before {
+  box-shadow: inset 0 0 0 2px #d6d6d6aa;
+}
+
+ul.list > li.completed {
+  box-shadow: inset 0 0 0 1px #e3d48866;
+}
+
+ul.list > li.multi-item > ul.list > li::before {
+  box-shadow: none;
 }
 
 ul.list > li > a {
@@ -76,26 +111,6 @@ ul.list > li.active > a::before {
   width: 2px;
 }
 
-ul.list > li::before {
-  box-shadow: inset 0 0 0 1px #d6d6d666;
-  content: " ";
-  left: 0;
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  z-index: 3;
-  height: 100%;
-  width: 100%;
-}
-
-ul.list > li.active::before {
-  box-shadow: inset 0 0 0 2px #d6d6d6aa;
-}
-
-ul.list > li.completed {
-  box-shadow: inset 0 0 0 1px #e3d48866;
-}
-
 ul.list > li > .icon {
   --icon-size-multiplier: 0.85;
   --icon-size: calc(var(--pill-height) * var(--icon-size-multiplier));
@@ -110,6 +125,25 @@ ul.list > li > .icon {
 
 ul.list > li  > .content {
   margin-left: 1rem;
+}
+
+ul.list > li > .content > .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 0;
+}
+
+ul.list > li > .content > .description {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  grid-column: span 2;
+  filter: brightness(0.5);
+  border-radius: 0;
+  text-overflow: ellipsis;
+  margin-top: 2px;
 }
 
 ul.list > li > .progress {
@@ -132,6 +166,61 @@ ul.list > li > .progress-bar-background {
 
 ul.list > li.completed > .progress-bar-background {
   background-color: #e3d4884a;
+}
+
+ul.list > li > .checkbox {
+  --size: calc(var(--pill-height) * 0.5);
+  background-size: var(--size);
+  height: var(--size);
+  width: var(--size);
+
+  position: relative;
+  border-radius: 2px;
+  margin-left: calc(50% - var(--size) / 2);
+}
+
+ul.list > li > .checkbox::after {
+  box-shadow: inset 0 0 0 1px #d6d6d666;
+  content: " ";
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
+}
+
+ul.list > li > .checkbox.completed::before {
+  /* box-shadow: inset 0 0 0 10000px #e3d48866; */
+  box-shadow: inset 0 0 0 10000px #337d4e89;
+  content: " ";
+  pointer-events: none;
+  position: absolute;
+  border-radius: 2px;
+  height: calc(100% - 6px);
+  width: calc(100% - 6px);
+  left: 3px;
+  top: 3px;
+  z-index: 3;
+}
+
+ul.list > li.span-2 {
+  grid-row: auto / span 2;
+}
+
+ul.list > li.span-3 {
+  grid-row: auto / span 3;
+}
+
+ul.list > li.span-4 {
+  grid-row: auto / span 4;
+}
+
+ul.list > li.span-n {
+  --n: 1;
+  grid-row: auto / span var(--n);
 }
 
 /** Buttons **/
@@ -294,17 +383,14 @@ li.pattern-progress > .icon {
   border: 1px solid var(--border-color);
 }
 
-li.pattern-progress > .content > .name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/** Vendor Unlock */
+
+li.vendor-unlock > .content > .description {
+  margin-top: 5px;
 }
 
-li.pattern-progress > .content > .type {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  display: -webkit-box;
-  overflow: hidden;
-  grid-column: span 2;
-  filter: brightness(0.5);
+/** Checkbox List Item */
+
+li.unlock > .content {
+  margin-left: 0 !important;
 }

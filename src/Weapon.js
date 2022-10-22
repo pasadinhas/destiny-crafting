@@ -42,8 +42,6 @@ function Weapon({weapon}) {
   const weaponHashes = getWeaponHashes(weapon, definitions)
   const ownedWeapons = useOwnedItemInstances(weaponHashes)
   
-  console.log({ownedWeapons, weaponHashes})
-
   const completed = weapon?.state == 67
   const icon = bungie(weapon?.displayProperties?.icon ?? "/common/destiny2_content/icons/528d5264b28c155e1bba26afb427aba0.png")
   const name = weapon?.displayProperties?.name ?? "..."
@@ -59,7 +57,7 @@ function Weapon({weapon}) {
     }}></div>
     <div className='content'>
       <div className='name'>{name}</div>
-      <div className='type'>{type}</div>
+      <div className='description'>{type}</div>
     </div>
     <div className='progress'>
       <span>{progress}</span>/<span>{completionValue}</span>
