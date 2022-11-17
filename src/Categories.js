@@ -1,6 +1,7 @@
 import ActivityCard from "./components/activities/ActivityCard"
 import VendorUnlock from "./components/activities/VendorUnlock"
 import ActivityCompletion from "./components/activities/ActivityCompletion"
+import CheckboxItem from "./components/activities/CheckboxItem"
 
 const Uncategorized = {
   name: "Uncategorized",
@@ -52,6 +53,11 @@ const SeasonOfPlunder = {
         name="Unlock 'Double Perk Weapon Spoils'"
         description="Unlocked in the Seasonal Vendor, guarantees that the first focused weapon of the week has Deepsight Resonance."
         inventoryItemHash={3797270607} 
+      />
+      <CheckboxItem
+        name="Focus a Weapon"
+        description="Go to the Star Chart in the H.E.L.M. and focus a weapon."
+        checked={false}
       />
     </ActivityCard>,
   ]
