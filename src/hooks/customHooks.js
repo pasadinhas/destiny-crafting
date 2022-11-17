@@ -25,7 +25,7 @@ function useDefinitions() {
 
 function useLinkedProfiles() {
   const membershipId = getMembershipId()
-  return useQuery(['linked-profiles', membershipId], fetchLinkedProfiles, {
+  return useQuery(['authenticated', 'linked-profiles', membershipId], fetchLinkedProfiles, {
     enabled: !!membershipId && !!getToken(),
     staleTime: Infinity,
     cacheTime: Infinity,
@@ -37,7 +37,7 @@ function useProfile(...components) {
   const membershipType = data?.Response?.profiles[0]?.membershipType
   const membershipId = data?.Response?.profiles[0]?.membershipId
 
-  return useQuery(['profile', membershipType, membershipId, ...components], fetchProfile, {
+  return useQuery(['authenticated', 'profile', membershipType, membershipId, ...components], fetchProfile, {
     enabled: !!membershipType && !!membershipId && !!getToken(),
     staleTime: Infinity,
   })
@@ -52,7 +52,7 @@ function useVendors() {
   const characters = (profile?.Response?.characters?.data || {})
   const characterId = Object.values(characters)[0]?.characterId
 
-  return useQuery(['vendors', membershipType, membershipId, characterId, 400, 402, 1200], fetchVendors, {
+  return useQuery(['authenticated', 'vendors', membershipType, membershipId, characterId, 400, 402, 1200], fetchVendors, {
     enabled: !!characterId && !!membershipType && !!membershipId && !!getToken(),
     staleTime: Infinity
   })
@@ -75,12 +75,16 @@ function useAllCharacterActivitiesSinceLastReset() {
     const characterId = characterIds[i]
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, } = useInfiniteQuery(
-      ['activities', membershipType, membershipId, characterId], 
+      ['authenticated', 'activities', membershipType, membershipId, characterId], 
       fetchActivities, {
         enabled: !!characterId && !!membershipType && !!membershipId && !!getToken(),
         staleTime: Infinity,
         cacheTime: 1000 * 60 * 5, // 5 minutes
         getNextPageParam: (lastPage, pages) => {
+          if (lastPage.ErrorCode != 1) {
+            console.error("Error getting activities.", lastPage)
+            return null;
+          }
           if (characterActivitiesComplete[i]) {
             return null
           }
@@ -105,7 +109,7 @@ function useAllCharacterActivitiesSinceLastReset() {
       fetchNextPage().then(result => currentCharacterActivitiesPage[i]++)
     }
 
-    const characterActivities = (data?.pages || []).flatMap(page => page.Response.activities)
+    const characterActivities = (data?.pages || []).flatMap(page => (page?.Response?.activities || []))
     const characterActivitiesThisReset = characterActivities.filter(activity => new Date(activity.period) > currentWeekBeginDate)
     
     activities = [...activities, ...characterActivitiesThisReset]

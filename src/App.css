@@ -168,6 +168,10 @@ li.card {
   padding: 1rem 3rem;
 }
 
+.button:active {
+  transform: translate(1px, 1px) ;
+}
+
 /** NavBar */
 
 .header {
@@ -256,6 +260,7 @@ li.pattern-progress > .progress-bar > .bar {
 li.pattern-progress > .progress-bar > .bar > .fill {
   height: 100%;
   background-color: var(--completed-gold);
+  transition: width ease-in-out 1s;
 }
 
 li.pattern-progress.completed > .progress-bar > .bar > .fill {
@@ -291,17 +296,14 @@ li.activity {
   outline: 1px solid var(--background-color-ligher);
   background-color: var(--background-barely-visible);
   position: relative;
+  transition: background-color ease-in-out 0.5s;
 }
 
 .checkbox-item .checkbox.checked {
-  height: 20px;
-  width: 20px;
-  margin-top: 2px;
-  outline: 1px solid var(--background-color-ligher);
   background-color: var(--completed-green);
 }
 
-.checkbox-item .checkbox.checked::before {
+.checkbox-item .checkbox::before {
   content: '';
   border-bottom: 3px solid var(--background-more-visible);
   border-left: 3px solid var(--background-more-visible);
@@ -310,7 +312,14 @@ li.activity {
   width: 13px;
   position: absolute;
   background-color: transparent;
-  transform: translateY(5px) translateX(2px) rotate(-52deg); 
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s ease-in 0.5s;
+}
+
+.checkbox-item .checkbox.checked::before {
+  opacity: 1;
+  transform: scale(1) translateY(5px) translateX(2px) rotate(-52deg); 
 }
 
 /** Utils */
