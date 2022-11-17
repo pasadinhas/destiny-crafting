@@ -66,7 +66,7 @@ function App() {
       <div className="header">
         <div className="content">
           <div className='brand'><span>D2 Crafting</span></div>
-          <Characters />
+          {/*<Characters />*/}
           <button className='button' onClick={authorize}>Login</button>
         </div>
       </div>

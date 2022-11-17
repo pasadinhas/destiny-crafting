@@ -1,4 +1,4 @@
-import MultiItem from "./components/ui/MultiItem"
+import ActivityCard from "./components/activities/ActivityCard"
 import VendorUnlock from "./components/activities/VendorUnlock"
 import ActivityCompletion from "./components/activities/ActivityCompletion"
 
@@ -20,13 +20,30 @@ const SeasonOfPlunder = {
     3257403871, // Planck's Stride
   ],
   activities: [
-    <MultiItem span={3}>
-      <VendorUnlock inventoryItemHash={3809407685} />
-      <ActivityCompletion hashes={[287709797, 3594496514]} />
-    </MultiItem>,
-    <MultiItem span={2}>
-      <VendorUnlock inventoryItemHash={3797270607} />
-    </MultiItem>,
+    <ActivityCard 
+      name="Guaranteed Ketchcrash Drop" 
+      description="Each week, get a guaranteed Deepsight weapon in Ketchcrash."
+    >
+      <VendorUnlock
+        name="Unlock 'Hidden Compartment'" 
+        description="Unlocked in the Seasonal Vendor, guarantees a Deepsight on the first Ketchcrash completion of the week." 
+        inventoryItemHash={3809407685}
+      />
+      <ActivityCompletion 
+        name="Ketchcrash"
+        description="Complete a Ketchcrash activity."
+        hashes={[287709797, 3594496514]} />
+    </ActivityCard>,
+    <ActivityCard
+      name="Guaranteed Focusing"
+      description="Each week, get a guaranteed Deepsight weapon via focusing."
+    >
+      <VendorUnlock 
+        name="Unlock 'Double Perk Weapon Spoils'"
+        description="Unlocked in the Seasonal Vendor, guarantees that the first focused weapon of the week has Deepsight Resonance."
+        inventoryItemHash={3797270607} 
+      />
+    </ActivityCard>,
   ]
 }
 

@@ -21,16 +21,13 @@ function Source({active, setActive, source}) {
   const classes = ['source', active ? 'active' : '', complete ? 'completed' : ''].join(' ')
 
   return (<li className={classes} onClick={setActive}>
-    <div className='icon image' style={{
+    <div className='icon' style={{
       backgroundImage: `url(${source.icon})`
     }}></div>
-    <div className="content">
-      <div className='name'>{source.name}</div>
-    </div>
+    <div className="content">{source.name}</div>
     <div className='progress'>
       <span>{completed}</span>/<span>{available}</span>
     </div>
-    <div className='progress-bar-background' style={{width: `${100 * completed / available}%`}}></div>
     <a href="/" onClick={e => {
       e.preventDefault();
       setActive();

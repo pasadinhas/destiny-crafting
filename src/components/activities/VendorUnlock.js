@@ -1,21 +1,12 @@
-import { useDefinitions, useOwnedVendorItems } from "../../hooks/customHooks"
+import { useOwnedVendorItems } from "../../hooks/customHooks"
+import CheckboxItem from "./CheckboxItem"
 
-function VendorUnlock({ inventoryItemHash }) {
-    const { data } = useDefinitions()
+function VendorUnlock({ name, description, inventoryItemHash }) {
     const result = useOwnedVendorItems()
-    const unlocked = result.indexOf(inventoryItemHash)
-    const completedClass = unlocked ? 'completed' : ''
+    const unlocked = result.indexOf(inventoryItemHash) >= 0
 
-    const name = data?.DestinyInventoryItemDefinition[inventoryItemHash]?.displayProperties?.name ?? 'no name'
-    const description = data?.DestinyInventoryItemDefinition[inventoryItemHash]?.displayProperties?.description ?? 'no description'
-
-    return (<li className="unlock span-2">
-        <div className={'checkbox ' + completedClass}></div>
-        <div className='content'>
-            <div className='name'>{name}</div>
-            <div className='description'>{description}</div>
-        </div>
-    </li>)
+    console.log(unlocked)
+    return <CheckboxItem name={name} description={description} checked={unlocked} />
 }
 
 export default VendorUnlock

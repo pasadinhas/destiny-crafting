@@ -1,6 +1,7 @@
 import { useAllCharacterActivitiesSinceLastReset } from "../../hooks/customHooks"
+import CheckboxItem from "./CheckboxItem"
 
-function ActivityCompletion({ hash, hashes = [] }) {
+function ActivityCompletion({ name, description, hash, hashes = [] }) {
   hashes = hash ? [...hashes, hash] : hashes
   const activities = useAllCharacterActivitiesSinceLastReset()
   const completed = activities.reduce(
@@ -8,13 +9,7 @@ function ActivityCompletion({ hash, hashes = [] }) {
     false
   )
 
-  return (<li className="unlock span-1">
-    <div className={'checkbox ' + (completed ? 'completed' : '')}></div>
-    <div className='content'>
-      <div className='name'>Ketchcrash</div>
-      <div className='description'>Complete a Ketchcrash activity</div>
-    </div>
-  </li>)
+  return <CheckboxItem name={name} description={description} checked={completed} />
 }
 
 export default ActivityCompletion

@@ -51,18 +51,23 @@ function Weapon({weapon}) {
   const progressPercentage = weapon.objectives == null
     ? 0 : 100 * weapon.objectives[0].progress / weapon.objectives[0].completionValue
 
-  return (<li className={"pattern-progress " + (completed ? 'completed' : '')}>
+  return (<li className={"pattern-progress card " + (completed ? 'completed' : '')}>
     <div className='icon image' style={{
       backgroundImage: `url(${icon})`
     }}></div>
     <div className='content'>
       <div className='name'>{name}</div>
-      <div className='description'>{type}</div>
+      <div className='description faded'>{type}</div>
     </div>
     <div className='progress'>
       <span>{progress}</span>/<span>{completionValue}</span>
     </div>
-    <div className='progress-bar-background' style={{width: `${progressPercentage}%`}}></div>
+    <div className='progress-bar'>
+      <div className='bar'>
+        <div className='fill' style={{width: `${progressPercentage}%`}}></div>
+      </div>
+    </div>
+    {/*<div className='progress-bar-background' style={{width: `${progressPercentage}%`}}></div>*/}
   </li>)
 }
 
