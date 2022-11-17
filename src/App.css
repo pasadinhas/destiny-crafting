@@ -20,6 +20,10 @@ ul {
   list-style: none;
 }
 
+body {
+  background-color: rgb(207, 72, 9);
+}
+
 #root {
   --header-height: 44px;
   --background-barely-visible: rgba(255, 255, 255, 0.05);
@@ -36,7 +40,7 @@ ul {
   background-size: cover;
   overflow: visible;
   border-radius: 0;
-  position: fixed;
+  position: absolute;
   z-index: -1;
 }
 

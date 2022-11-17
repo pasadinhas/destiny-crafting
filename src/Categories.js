@@ -5,7 +5,17 @@ import ActivityCompletion from "./components/activities/ActivityCompletion"
 const Uncategorized = {
   name: "Uncategorized",
   icon: "https://www.bungie.net/common/destiny2_content/icons/528d5264b28c155e1bba26afb427aba0.png",
-  hashes: []
+  hashes: [],
+  activities: [
+    <ActivityCard
+      name="Unobtainable"
+      description="These weapons have crafting patterns in the Destiny manifest, but are not obtainable in-game."
+    ></ActivityCard>,
+    <ActivityCard
+      name="Content Release"
+      description="When new content is released, new weapons can appear here before they are manually categorized."
+    ></ActivityCard>
+  ]
 }
 
 const SeasonOfPlunder = {
@@ -68,6 +78,12 @@ const WorldLootPool = {
     292832740, // Palmyra-B
     953028525, // Syncopation-53
     4013775975, // Taipan-4fr
+  ],
+  activities: [
+    <ActivityCard
+      name="Play the Game"
+      description="World Loot Pool weapons can drop from most activities."
+    ></ActivityCard>
   ]
 }
 
