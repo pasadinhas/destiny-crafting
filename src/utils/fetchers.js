@@ -20,7 +20,7 @@ async function bungieApi(path, accessToken = null, method = 'GET') {
 
 async function testCurrentAuthentication() {
   return bungieApi(`/Platform/Destiny2/254/Profile/${getMembershipId()}/LinkedProfiles/`).then(r => {
-    return r.status == 200
+    return r.status === 200
   })
 }
 

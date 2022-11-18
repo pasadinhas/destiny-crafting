@@ -5,16 +5,15 @@ import Sources from './components/sources/Sources';
 import Weapons from './components/patterns/Weapons';
 import Constants from './utils/Constants';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { useWeapons, useProfile } from './hooks/customHooks';
-import Characters from './components/navbar/Characters';
-import { getLocalAccessToken, getMembershipId, getToken } from './utils/auth';
-import { fetchLinkedProfiles, testCurrentAuthentication } from './utils/fetchers';
-import { defaultContext, QueryClient } from '@tanstack/react-query';
+import { useWeapons } from './hooks/customHooks';
+import { getLocalAccessToken, getToken } from './utils/auth';
+import { testCurrentAuthentication } from './utils/fetchers';
+import { defaultContext } from '@tanstack/react-query';
 
 const categorizedHashes = Categories.flatMap(category => category.hashes)
 
 function uncategorizedWeapons(weapons) {
-  return Object.values(weapons).filter(weapon => categorizedHashes.indexOf(weapon.hash) == -1).map(weapon => weapon.hash)
+  return Object.values(weapons).filter(weapon => categorizedHashes.indexOf(weapon.hash) === -1).map(weapon => weapon.hash)
 }
 
 function bungie(path) {
@@ -75,6 +74,7 @@ function App() {
   const uncategorizedHashes = useMemo(() => uncategorizedWeapons(weapons), [weapons])
   Uncategorized.hashes = uncategorizedHashes
 
+  const storedAccessToken = getToken()
   useEffect(() => {
     const localAccessToken = getLocalAccessToken()
     if (localAccessToken == null) {
@@ -88,7 +88,7 @@ function App() {
         setLoginStatus(LoginStatus.LoggedOut);
       }
     })
-  }, [getToken()])
+  }, [storedAccessToken])
 
 
   return (<>
@@ -96,9 +96,9 @@ function App() {
       <div className="header">
         <div className="content">
           <div className='brand'><span>D2 Crafting</span></div>
-          {loginStatus == LoginStatus.Loading 
+          {loginStatus === LoginStatus.Loading 
             ?<span>Checking log in status...</span>
-            : loginStatus == LoginStatus.LoggedOut 
+            : loginStatus === LoginStatus.LoggedOut 
               ? <button className='button' onClick={() => authorize(queryClient, setLoginStatus)}>Login</button>
               : <button className='button' onClick={() => logout()}>Logout</button>
           }

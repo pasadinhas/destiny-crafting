@@ -12,7 +12,7 @@ function useManifest() {
 }
 
 function useDefinitions() {
-  const { isLoading, data } = useManifest()
+  const { data } = useManifest()
 
   const definitionsPath = data?.Response?.jsonWorldContentPaths?.en
 
@@ -81,7 +81,7 @@ function useAllCharacterActivitiesSinceLastReset() {
         staleTime: Infinity,
         cacheTime: 1000 * 60 * 5, // 5 minutes
         getNextPageParam: (lastPage, pages) => {
-          if (lastPage.ErrorCode != 1) {
+          if (lastPage.ErrorCode !== 1) {
             console.error("Error getting activities.", lastPage)
             return null;
           }
@@ -136,7 +136,7 @@ function useCraftableWeaponsDefinitions() {
     }
 
     return Object.values(data.DestinyRecordDefinition)
-      .filter(record => record.completionInfo?.toastStyle == 8)
+      .filter(record => record.completionInfo?.toastStyle === 8)
       .reduce((result, definition) => {
         result[definition.hash] = definition
         return result
@@ -185,7 +185,7 @@ function useOwnedItemInstances(itemHashes = []) {
       return result.concat(inventory.items)
     }, profile.Response.profileInventory.data.items)
     .filter(item => item.itemInstanceId) // Not all items have instances
-    .filter(item => !itemHashes || itemHashes.length == 0 || itemHashes.indexOf(item.itemHash) >= 0)
+    .filter(item => !itemHashes || itemHashes.length === 0 || itemHashes.indexOf(item.itemHash) >= 0)
     .map(item => ({
       ...instances[item.itemInstanceId],
       ...objectives[item.itemInstanceId],
