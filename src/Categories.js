@@ -97,8 +97,8 @@ const Wellspring = {
   name: "Wellspring",
   icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_feb5aecca544ab023ecf3b74ac8f509b.png",
   hashes: [
+    3863516258, // Come to Pass
     311360599, // Father's Sins
-    689439417, // Pointed Inquiry
     1507884969, // Tarnation
     3907981638, // Fel Taradiddle
   ]
@@ -193,10 +193,10 @@ const ThroneWorld = {
   name: "Throne World",
   icon: "https://www.bungie.net/common/destiny2_content/icons/e17d13013bad7d53c47b0231b9784e1e.png",
   hashes: [
+    689439417, // Pointed Inquiry
     1615038969, // Forensic Nightmare
     2107474614, // Likely Suspect
     3770251030, // Red Herring
-    3863516258, // Come to Pass
     4205772441, // Empirical Evidence
   ]
 }

@@ -13,6 +13,7 @@ function Source({active, setActive, source}) {
   const completed = completedWeapons(source, weapons)
   const available = source.hashes.length
   const complete = completed === available
+  const progressPercentage = ((completed / available * 100) || 0) + '%'
 
   const classes = ['source', active ? 'active' : '', complete ? 'completed' : ''].join(' ')
 
@@ -24,6 +25,7 @@ function Source({active, setActive, source}) {
     <div className='progress'>
       <span>{completed}</span>/<span>{available}</span>
     </div>
+    <div className='progress-pie' style={{'--progress': progressPercentage}}></div>
     <a href="/" onClick={e => {
       e.preventDefault();
       setActive();

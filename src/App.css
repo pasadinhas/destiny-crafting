@@ -66,7 +66,7 @@ body {
 .app-content {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 2fr 4fr 3fr;
+  grid-template-columns: 23rem 4fr 3fr;
   height: fit-content;
   min-height: calc(100vh - var(--header-height));
 }
@@ -104,7 +104,7 @@ ul.menu-list {
 
 ul.menu-list > li {
   display: grid;
-  grid-template-columns: var(--menu-item-height) 1fr 2rem;
+  grid-template-columns: var(--menu-item-height) 1fr 2rem 2rem;
   align-items: center;
   position: relative;
   z-index: 3;
@@ -125,10 +125,20 @@ ul.menu-list > li > .icon {
   width: var(--icon-size);
 }
 
+ul.menu-list > li > .progress-pie {
+  --progress: 33%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: conic-gradient(var(--completed-green) var(--progress), transparent 0), rgba(255,255,255,0.05); 
+}
+
+
 ul.menu-list > li > .progress {
   text-align: right;
-  letter-spacing: 1px;
-  font-size: 85%;
+  letter-spacing: 3px;
+  font-size: 72%;
 }
 
 ul.menu-list > li > a {
