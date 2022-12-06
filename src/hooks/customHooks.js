@@ -121,7 +121,7 @@ function useAllCharacterActivitiesSinceLastReset() {
 function useOwnedVendorItems() {
   const { data } = useVendors()
   return useMemo(() => {
-    if (!data) return []
+    if (!data?.Response?.sales) return []
     return Object.values(data.Response.sales.data).flatMap(sale => Object.values(sale.saleItems))
       .filter(item => (item.augments || 0) & 128)
       .map(item => item.itemHash)

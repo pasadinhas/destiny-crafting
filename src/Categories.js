@@ -201,7 +201,47 @@ const ThroneWorld = {
   ]
 }
 
+const DeepStoneCrypt = {
+  name: "Deep Stone Crypt",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/f71c1a6ab05d2c287352c8ee0aae644e.png",
+  hashes: [
+    200612470, // Posterity
+    633869177, // Commemoration
+    924334687, // Succession
+    3370786210, // Trustee
+    4170453731, // Heritage
+    399865831, // Bequest
+  ]
+}
+
+const SeasonOfTheSeraph = {
+  name: "Season of the Seraph",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_dd9fe0539a0c29c9e6f5f4d257d3c15a.png",
+  hashes: [
+    204031420, // Tripwire Canary
+    1506999309, // Path of Least Resistance
+    1778902326, // Judgment of Kelgorath
+    3172595571, // Fire and Forget
+    3835559140, // Disparity
+    3862297426, // Retrofit Escapade
+  ]
+}
+
+const IkelosWeapons = {
+  name: "Ikelos Weapons",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/3dbef7e84474fa68bcc01c7f4c9c77b0.png",
+  hashes: [
+    622035212, // IKELOS_SR_v1.0.3
+    692035983, // IKELOS_SMG_v1.0.3
+    1366529950, // IKELOS_SG_v1.0.3
+    4070327399, // IKELOS_HC_v1.0.3
+  ]
+}
+
 const Categories = [
+  SeasonOfTheSeraph,
+  IkelosWeapons,
+  DeepStoneCrypt,
   SeasonOfPlunder,
   DaresOfEternity,
   SeasonOfTheHaunted,
