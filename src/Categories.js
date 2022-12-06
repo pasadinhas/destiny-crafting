@@ -145,7 +145,7 @@ const KingsFall = {
 
 const OpulentWeapons = {
   name: "Opulent Weapons",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/525ebce0b78615a94b62e5969afd1485.png", // bad icon :(
+  icon: "https://www.bungie.net/common/destiny2_content/icons/cef32825c1da6ed5db3ed84e69c4bb60.png", // bad icon :(
   hashes: [
     1444412985, // Austringer
     826543773, // Drang (Baroque)
