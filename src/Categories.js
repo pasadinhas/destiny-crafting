@@ -72,6 +72,7 @@ const QuestWeapons = {
     1955149226, // Edge of Action
     3296489718, // Edge of Concurrence
     1446423643, // The Enigma
+    929449757, // Revision Zero
   ]
 }
 
@@ -84,6 +85,7 @@ const WorldLootPool = {
     292832740, // Palmyra-B
     953028525, // Syncopation-53
     4013775975, // Taipan-4fr
+    2292557505, // Marsilion-C
   ],
   activities: [
     <ActivityCard
@@ -95,7 +97,8 @@ const WorldLootPool = {
 
 const Wellspring = {
   name: "Wellspring",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_feb5aecca544ab023ecf3b74ac8f509b.png",
+  //icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_feb5aecca544ab023ecf3b74ac8f509b.png", // removed from bungie
+  icon: "https://www.bungie.net/common/destiny2_content/icons/b480945e13f700b4fa510a6fc79b92b2.png", // bad icon: item perk
   hashes: [
     3863516258, // Come to Pass
     311360599, // Father's Sins
@@ -238,7 +241,34 @@ const IkelosWeapons = {
   ]
 }
 
+const Neomuna = {
+  name: "Neomuna",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_67326996f903b5961421421e60ba128c.png",
+  hashes: [
+    2839479882, // Round Robin
+    1167176444, // Phyllotactic Spiral
+    1517724383, // Volta Bracket
+    777254375, // Iterative Loop
+    170523067, // Dimensional Hypotrochoid
+  ]
+}
+
+const SeasonOfDefiance = {
+  name: "Season of Defiance",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_50d80a655bccddfd26e954dbfc3b9746.png",
+  hashes: [
+    3845305795, // Raconteur
+    2514059564, // Perpetualis
+    3393054854, // Royal Executioner
+    2324218515, // Prodigal Return
+    752104278, // Regnant
+    3171877617, // Caretaker
+  ]
+}
+
 const Categories = [
+  SeasonOfDefiance,
+  Neomuna,
   SeasonOfTheSeraph,
   IkelosWeapons,
   DeepStoneCrypt,
