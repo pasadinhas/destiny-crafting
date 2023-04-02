@@ -37,8 +37,8 @@ function Weapon({weapon}) {
   return <PatternProgressWireframe
     completed={completed}
     icon={icon}
-    //name={name}
-    name={`${name} (${weapon.hash})`}
+    name={name}
+    //name={`${name} (${weapon.hash})`}
     type={type}
     progress={progress}
     completionValue={completionValue}
