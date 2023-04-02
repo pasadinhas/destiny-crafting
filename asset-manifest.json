@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/destiny-crafting/static/css/main.822e8044.css",
-    "main.js": "/destiny-crafting/static/js/main.27cdfddd.js",
+    "main.css": "/destiny-crafting/static/css/main.83999754.css",
+    "main.js": "/destiny-crafting/static/js/main.6be20787.js",
     "static/js/787.61b04872.chunk.js": "/destiny-crafting/static/js/787.61b04872.chunk.js",
     "index.html": "/destiny-crafting/index.html",
-    "main.822e8044.css.map": "/destiny-crafting/static/css/main.822e8044.css.map",
-    "main.27cdfddd.js.map": "/destiny-crafting/static/js/main.27cdfddd.js.map",
+    "main.83999754.css.map": "/destiny-crafting/static/css/main.83999754.css.map",
+    "main.6be20787.js.map": "/destiny-crafting/static/js/main.6be20787.js.map",
     "787.61b04872.chunk.js.map": "/destiny-crafting/static/js/787.61b04872.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.822e8044.css",
-    "static/js/main.27cdfddd.js"
+    "static/css/main.83999754.css",
+    "static/js/main.6be20787.js"
   ]
 }
