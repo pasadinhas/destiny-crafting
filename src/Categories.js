@@ -73,6 +73,8 @@ const QuestWeapons = {
     3296489718, // Edge of Concurrence
     1446423643, // The Enigma
     929449757, // Revision Zero
+    2627701916, //Vexcalibur
+
   ]
 }
 
@@ -266,8 +268,34 @@ const SeasonOfDefiance = {
   ]
 }
 
+const RootOfNightmares = {
+  name: "Root of Nightmares",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_d3dc8747ee63f991c6a56ac7908047ba.png",
+  hashes: [
+    3743137436, // Rufus's Fury
+    1164396532, // Mykel's Reverence
+    3838502045, // Acasia's Dejection
+    700218081, // Nessa's Oblation
+    2742412203, // Koraxis's Distress
+    417302779, // Briar's Contempt
+  ]
+}
+
+const RecoveredLeviathanWeapons = {
+  name: "Recovered Leviathan Weapons",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/a242e1248fc02599d3419f9ea70630d9.png",
+  hashes: [
+    1388873285, // Imperial Decree
+    3091520689, // Throne-Cleaver
+    3091520690, // Death's Razor
+    3091520691, // Goldtusk
+  ]
+}
+
 const Categories = [
+  RootOfNightmares,
   SeasonOfDefiance,
+  RecoveredLeviathanWeapons,
   Neomuna,
   SeasonOfTheSeraph,
   IkelosWeapons,
