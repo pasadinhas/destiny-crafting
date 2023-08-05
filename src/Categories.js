@@ -292,7 +292,37 @@ const RecoveredLeviathanWeapons = {
   ]
 }
 
+const SeasonOfTheDeep = {
+  name: "Season of the Deep",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_f82759315a8d05fc597778d2086acee4.png",
+  hashes: [
+    673861429, // Different Times
+    1195933113, // Targeted Redaction
+    1585307805, // Rapacious Appetite
+    3159538778, // A Distant Pull
+    3328286012, // Until Its Return
+    2119725732, // Thin Precipice
+  ]
+}
+
+const LastWishRaid = {
+  name: "Last Wish",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/bd7a1fc995f87be96698263bc16698e7.png",
+  hashes: [
+    950932825, // Tyranny of Heaven
+    1029956969, // Nation of Beasts
+    2610512925, // Chattering Bone
+    2906615623, // Age-Old Bond
+    3363925957, // Transfiguration
+    2360742598, // The Supremacy
+    4104745812, // Techeun Force
+    2585307516, // Apex Predator
+  ]
+}
+
 const Categories = [
+  LastWishRaid,
+  SeasonOfTheDeep,
   RootOfNightmares,
   SeasonOfDefiance,
   RecoveredLeviathanWeapons,
