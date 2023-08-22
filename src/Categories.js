@@ -72,7 +72,6 @@ const QuestWeapons = {
     1955149226, // Edge of Action
     3296489718, // Edge of Concurrence
     1446423643, // The Enigma
-    929449757, // Revision Zero
     2627701916, //Vexcalibur
 
   ]
@@ -208,7 +207,7 @@ const ThroneWorld = {
 
 const DeepStoneCrypt = {
   name: "Deep Stone Crypt",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/f71c1a6ab05d2c287352c8ee0aae644e.png",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/9d6744eed9fa9b55f8190ce975f1872d.png",
   hashes: [
     200612470, // Posterity
     633869177, // Commemoration
@@ -234,7 +233,7 @@ const SeasonOfTheSeraph = {
 
 const IkelosWeapons = {
   name: "Ikelos Weapons",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/3dbef7e84474fa68bcc01c7f4c9c77b0.png",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/44efbb5de18ddc290c38e12dca746c7b.png",
   hashes: [
     622035212, // IKELOS_SR_v1.0.3
     692035983, // IKELOS_SMG_v1.0.3
@@ -320,7 +319,32 @@ const LastWishRaid = {
   ]
 }
 
+const ExoticMission = {
+  name: "Exotic Mission",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinyMilestoneDefinition_fbba06b79fd1752af47e133cce7a3f45.png",
+  hashes: [
+    2708276045, // Dead Man's Tale
+    3027110436, // Dead Messenger
+    929449757, // Revision Zero
+  ]
+}
+
+const SeasonOfTheWitch = {
+  name: "Season of the Witch",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_fdbb36bb7f4f81c0170ca0b2cced22d6.png",
+  hashes: [
+    3113198670, // Kept Confidence
+    4112659123, // Brya's Love
+    1452920131, // Locus Locutus
+    1526803724, // The Eremite
+    1610063585, // Eleatic Principle
+    2949440399, // Semiotician
+  ]
+}
+
 const Categories = [
+  ExoticMission,
+  SeasonOfTheWitch,
   LastWishRaid,
   SeasonOfTheDeep,
   RootOfNightmares,
