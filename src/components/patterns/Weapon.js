@@ -38,7 +38,7 @@ function Weapon({weapon}) {
     completed={completed}
     icon={icon}
     name={name}
-    //name={`${name} (${weapon.hash})`}
+    //name={`${weapon.hash}, // ${name}`}
     type={type}
     progress={progress}
     completionValue={completionValue}

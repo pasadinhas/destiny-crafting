@@ -1,11 +1,18 @@
-import Source from "./Source";
+import SourceGroup from "./SourceGroup";
+
 
 function Sources({sources, activeSource, setActiveSource}) {
-  return (<div>
+  const sourceGroups = sources.reduce((result, source) => {
+    const group = source.group ?? "Ungrouped"
+    result[group] = [...(result[group] || []), source]
+    return result;
+  }, {})
+
+  console.log(sourceGroups)
+  
+return (<div>
     <h1 className="column-title">Categories</h1>
-    <ul className="menu-list">
-      {sources.map(source => <Source key={source.name} setActive={() => setActiveSource(source)} active={source === activeSource} source={source}/>)}
-    </ul>
+    {Object.entries(sourceGroups).map(([groupName, groupSources]) => <SourceGroup name={groupName} sources={groupSources} setActiveSource={setActiveSource} activeSource={activeSource} />)}
   </div>)
 }
 
