@@ -92,7 +92,6 @@ const WorldLootPool = {
     292832740, // Palmyra-B
     953028525, // Syncopation-53
     4013775975, // Taipan-4fr
-    2292557505, // Marsilion-C
   ],
   activities: [
     <ActivityCard
