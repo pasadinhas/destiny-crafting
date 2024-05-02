@@ -20,10 +20,6 @@ ul {
   list-style: none;
 }
 
-body {
-  background-color: rgb(207, 72, 9);
-}
-
 #root {
   --header-height: 44px;
   --background-barely-visible: rgba(255, 255, 255, 0.05);
@@ -32,23 +28,13 @@ body {
   --completed-gold: rgba(255, 226, 77, 0.5);
 }
 
-#root::before {
-  content: '';
-  height: 100%;
-  width: 100%;
-  background: url('https://9to5mac.com/wp-content/uploads/sites/6/2022/06/macOS-Ventura-wallpaper-1.jpg') center;
-  background-size: cover;
-  overflow: visible;
-  border-radius: 0;
-  position: absolute;
-  z-index: -1;
-}
-
 .App {
-  --background-color: rgba(24, 24, 37, 0.9);
-  --background-color: rgba(22, 22, 22, 0.3);
-  --background-color-darker: rgb(18, 18, 24);
-  --background-color-ligher: rgb(255, 255, 255, 0.2);
+  --background-color: rgb(29, 28, 54);
+  --color-header: rgb(22 22 22);
+  --color-glass-darker: rgb(0, 0, 0, 0.5);
+  --color-glass-dark: rgb(0, 0, 0, 0.2);
+  --color-glass-light: rgb(255, 255, 255, 0.1);
+  --color-glass-lighter: rgb(255, 255, 255, 0.5);
   --font-color: rgba(245, 245, 245);
   --border-color: rgb(245, 245, 245, 0.2);
   --pill-height: 44px;
@@ -87,7 +73,7 @@ body {
   font-weight: 600;
   padding-bottom: 0.5rem;
   border-radius: 0;
-  border-bottom: 1px solid var(--background-color-ligher);
+  border-bottom: 1px solid var(--color-glass-light);
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
@@ -114,7 +100,7 @@ ul.menu-list > li {
 }
 
 ul.menu-list > li.active {
-  background-color: var(--background-color-ligher);
+  background-color: var(--color-glass-light);
 }
 
 ul.menu-list > li > .icon {
@@ -182,7 +168,7 @@ li.card {
 /** Buttons **/
 
 .button {
-  background-color: var(--background-color-ligher);
+  background-color: var(--color-glass-light);
   color: var(--font-color);
   border: 1px solid var(--border-color);
   padding: 1rem 3rem;
@@ -196,8 +182,8 @@ li.card {
 
 .header {
   height: var(--header-height);
-  background-color: var(--background-color-darker);
-  border-bottom: 1px solid var(--background-color-ligher);
+  background-color: var(--color-header);
+  border-bottom: 1px solid var(--color-glass-light);
   border-radius: 0;
 }
 
@@ -246,7 +232,7 @@ li.pattern-progress > .icon {
   height: var(--icon-size);
   width: var(--icon-size);
   margin: auto;
-  outline: 1px solid var(--background-color-ligher);
+  outline: 1px solid var(--color-glass-light);
 }
 
 li.pattern-progress > .content {
@@ -313,7 +299,7 @@ li.activity {
   height: 20px;
   width: 20px;
   margin-top: 2px;
-  outline: 1px solid var(--background-color-ligher);
+  outline: 1px solid var(--color-glass-light);
   background-color: var(--background-barely-visible);
   position: relative;
   transition: background-color ease-in-out 0.5s;
