@@ -131,7 +131,7 @@ const DaresOfEternity = {
 
 const VowOfTheDisciple = {
   name: "Vow of the Disciple",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/5a90815a3600626978102d6c6ba3582f.png",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/b84b6ea72dd05de7123aa2ae87ba0d6a.png", // Vow of the Disciple // Record
   group: GROUP_RAID,
   hashes: [
     422252754, // Forbearance
@@ -145,7 +145,7 @@ const VowOfTheDisciple = {
 
 const KingsFall = {
   name: "King's Fall",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/bc809878e0c2ed8fd32feb62aaae690c.png",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/ada298d79d9f74befb055e2454f33af0.png", // King's Fall // Record
   group: GROUP_RAID,
   hashes: [
     437884069, // Zaouli's Bane
@@ -159,7 +159,7 @@ const KingsFall = {
 
 const OpulentWeapons = {
   name: "Season of the Haunted: Opulent",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/cef32825c1da6ed5db3ed84e69c4bb60.png", // bad icon :(
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_3847a7f2241ce39588bfc2c85239b055.png",
   group: "Season",
   hashes: [
     1444412985, // Austringer
@@ -303,7 +303,7 @@ const RootOfNightmares = {
 
 const RecoveredLeviathanWeapons = {
   name: "Season of Defiance: Leviathan",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/a242e1248fc02599d3419f9ea70630d9.png",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_50d80a655bccddfd26e954dbfc3b9746.png",
   group: "Season",
   hashes: [
     1388873285, // Imperial Decree
@@ -329,7 +329,7 @@ const SeasonOfTheDeep = {
 
 const LastWishRaid = {
   name: "Last Wish",
-  icon: "https://www.bungie.net/common/destiny2_content/icons/bd7a1fc995f87be96698263bc16698e7.png",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/fed7eab7b03a03cc1389c907f8fbe316.png", // Spirit of Riven Reputation // Item
   group: GROUP_RAID,
   hashes: [
     950932825, // Tyranny of Heaven
