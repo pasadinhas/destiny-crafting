@@ -352,6 +352,8 @@ const ExoticMission = {
     3027110436, // Dead Messenger
     929449757, // Revision Zero
     1079246704, // Wish-Keeper
+    428827874, // Whisper of the Worm
+    2156240610, // Outbreak Perfected
   ]
 }
 
