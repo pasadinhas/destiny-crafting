@@ -410,7 +410,42 @@ const SeasonOfTheWishUndying = {
   ]
 }
 
+const PaleHeart = {
+  name: "Pale Heart",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/7428ca496ed770c53f36beeb8897336e.png", // Trait // The Final Shape
+  group: GROUP_WORLD_AND_ACTIVITIES,
+  hashes: [
+    73042000, // Bold Endings
+    3250185988, // No Hesitation
+    2802902751, // Axial Lacuna
+    2915173860, // The Call
+    1542716001, // Someday
+    4201982617, // Embraced Identity
+    4037893817, // False Idols
+    3573717463, // Pro Memoria
+  ]
+}
+
+const EpisodeEchoes = {
+  name: "Episode: Echoes",
+  icon: "https://www.bungie.net/common/destiny2_content/icons/DestinySeasonDefinition_191cb7a0671a82cd7eb5a7c2d5e159ba.png", // Season // Episode: Echoes
+  group: "Episodes",
+  hashes: [
+    866291909, // Sightline Survey
+    2157740433, // Timeworn Wayfarer
+    2757592303, // Veiled Threat
+    4231302093, // Corrasion
+    652170105, // Aberrant Action
+    505596068, // Chronophage
+    1403821096, // Lost Signal
+    1842540548, // Ill Omen
+    1850703804, // Faith-Keeper
+    4138904372, // Speleologist
+  ]
+}
+
 const Categories = [
+  EpisodeEchoes,
   SeasonOfTheWish,
   SeasonOfTheWishUndying,
   CrotasEnd,
@@ -421,6 +456,7 @@ const Categories = [
   RootOfNightmares,
   SeasonOfDefiance,
   RecoveredLeviathanWeapons,
+  PaleHeart,
   Neomuna,
   SeasonOfTheSeraph,
   IkelosWeapons,
